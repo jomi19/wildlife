@@ -4,13 +4,16 @@ import { useParams } from "react-router-dom";
 import type { Post } from "../../models";
 import utils from "../../services/utils";
 import parse from "html-react-parser";
+import config from "../../config.json";
+
+const API_URL = `${config.API_URL}post`;
 
 export default function ViewBlogPost() {
 	let params = useParams();
 	const slug = params.slug;
-	const [post, setPost] = useState<Post>();
+	const [post, setPost] = useState<any>();
 	useEffect(() => {
-		fetch(`http://localhost:5000/post?slug=${slug}`)
+		fetch(`${API_URL}?slug=${slug}`)
 			.then((response) => response.json())
 			.then((data) => {
 				setPost(data);
