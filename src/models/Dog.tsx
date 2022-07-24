@@ -2,18 +2,21 @@ export interface IDog {
 	name: string;
 	pictureUrl?: string;
 	born: Date;
-	hd?: string;
 	mh?: Imh;
-	prices?: string;
+	infoBlock?: Array<IInfoBlock>;
 	_id?: any;
-	sanitizedPrices?: string;
-	sanitizedHd?: string;
+}
+
+export interface IInfoBlock {
+	title: string;
+	markdown?: string;
+	sanitizedHtml?: string;
 }
 
 export interface Imh {
-	curiosity: Number;
-	aggression: Number;
-	social: Number;
-	hunting: Number;
-	playfulness: Number;
+	curiosity: number;
+	aggression: number;
+	social: number;
+	hunting: number;
+	playfulness: number;
 }

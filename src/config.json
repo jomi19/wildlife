@@ -1,4 +1,4 @@
 {
-	"API_URL": "https://wildback.joakimm.eu/",
-	"s": "http://localhost:5000/"
+	"s": "https://wildback.joakimm.eu/",
+	"API_URL": "http://localhost:5000/"
 }

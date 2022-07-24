@@ -32,6 +32,7 @@ export default function EditBlogPost() {
 		const value = e.currentTarget.value;
 
 		setForm({ ...form, [name]: value });
+		console.log(form);
 	}
 
 	async function submitHandler(e: React.SyntheticEvent) {
@@ -57,7 +58,6 @@ export default function EditBlogPost() {
 			.catch((err) => {
 				console.log("err");
 			});
-		console.log(method);
 	}
 
 	return (

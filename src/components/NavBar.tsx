@@ -97,7 +97,7 @@ function DropDownMenu(props: { item: NavItem }) {
 				{dogs?.map((sub, index) => {
 					return (
 						<NavLink
-							to={`/dog/${sub.name}`}
+							to={`/dog/view/${sub.name}`}
 							className="m-2 block"
 							onClick={closeDropDown}
 							key={index}

@@ -27,14 +27,14 @@ function App() {
 				<Routes>
 					<Route path="/" element={<StartPage />} />
 					<Route path="/view/:slug" element={<ViewBlogPost />} />
-					<Route path="/edit/:slug" element={<EditBlogPost />} />
+					<Route path="/edit/post/:slug" element={<EditBlogPost />} />
 					<Route path="/newblogpost/" element={<EditBlogPost />} />
 					<Route path="/newimage/" element={<UploadImage />} />
 					<Route path="/login/" element={<Login />} />
 					<Route path="/gallery" element={<Gallery />} />
 					<Route path="/blog/list" element={<BlogList />} />
-					<Route path="/dog/:name" element={<ViewDog />} />
-					<Route path="/editdog/:name" element={<EditDog />} />
+					<Route path="/dog/view/:name" element={<ViewDog />} />
+					<Route path="/dog/edit/:name" element={<EditDog />} />
 				</Routes>
 			</Layout>
 			<Modal />

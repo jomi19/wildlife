@@ -17,6 +17,9 @@ export default function AdminBar() {
 				<Link to="/newimage/" className={buttonStyling}>
 					Ny bild
 				</Link>
+				<Link to="/dog/edit/new" className={buttonStyling}>
+					Ny hund
+				</Link>
 				<div className={buttonStyling} onClick={() => logOut()}>
 					Logga ut
 				</div>

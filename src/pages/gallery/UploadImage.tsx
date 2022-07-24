@@ -10,8 +10,8 @@ const resizeFile = (file: any) =>
 		if (file.type === "image/png") type = "png";
 		Resizer.imageFileResizer(
 			file,
-			720,
-			720,
+			1000,
+			1000,
 			type,
 			100,
 			0,
@@ -38,7 +38,6 @@ export default function UploadImage() {
 	async function imageChange(e: any) {
 		try {
 			const file = e.target.files[0];
-			console.log(file.type);
 			const image = await resizeFile(file);
 			setImage(image);
 			console.log(image);

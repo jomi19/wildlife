@@ -11,24 +11,28 @@ import { MdModeEditOutline } from "react-icons/md";
 export default function ViewDog(props: any) {
 	const params = useParams();
 	const dogs = useDog();
+
 	const siteSettings = useSettings();
 	const token = siteSettings?.token || false;
 	const navigate = useNavigate();
 	const name = params.name;
-	let dog = dogs?.find((dog) => dog.name === name);
 	const imgUrl = config.API_URL;
+	let dog = dogs?.find((dog) => dog.name === name);
+
+	if (!dog) return <></>;
+	const infoBlock = dog.infoBlock || [];
 
 	return (
 		<>
 			<h1>
-				{dog?.name}
+				{dog.name}
 				{token ? (
 					<MdModeEditOutline
 						className="text-red-100"
-						onClick={() => navigate(`/editdog/${name}`)}
+						onClick={() => navigate(`/dog/edit/${name}`)}
 					/>
 				) : (
-					""
+					<></>
 				)}
 			</h1>
 			<div className="grid  lg:grid-cols-2 gap-4">
@@ -42,26 +46,13 @@ export default function ViewDog(props: any) {
 				<div className="">
 					{dog?.mh ? <RadarChart mh={dog?.mh} name={dog?.name} /> : ""}
 				</div>
-
-				{dog ? (
+				{infoBlock.map((block) => (
 					<DogContentBar
-						html={dog.sanitizedPrices}
-						rawText={dog.prices}
-						name={dog.name}
+						title={block.title}
+						content={block.sanitizedHtml || ""}
+						key={block.title}
 					/>
-				) : (
-					""
-				)}
-
-				{dog ? (
-					<DogContentBar
-						html={dog.sanitizedHd}
-						rawText={dog.hd}
-						name={dog.name}
-					/>
-				) : (
-					""
-				)}
+				))}
 			</div>
 		</>
 	);

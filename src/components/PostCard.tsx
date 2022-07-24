@@ -34,7 +34,7 @@ function AdminBlogCard({ slug, title }: IAdminBlogCard) {
 	const siteSettings = useSettings();
 	const token = siteSettings?.token;
 	const svgStyling = "text-red-100";
-	const link = `/edit/${slug}`;
+	const link = `/edit/post/${slug}`;
 	const modal = useModal();
 	const apiUrl = `${config.API_URL}post`;
 	const update = usePostUpdate();
